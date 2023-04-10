@@ -7,12 +7,12 @@ import os
 app = Flask(__name__)
 dashboard.bind(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://chckkmjn:IIXUrHBVSTEIg-Ux6vQ-DH6NIfG1hV7u@hattie.db.elephantsql.com/chckkmjn'
-db = SQLAlchemy(app)
-
-#basedir = os.path.abspath(os.path.dirname(__file__))
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'mydatabase.db')
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://chckkmjn:IIXUrHBVSTEIg-Ux6vQ-DH6NIfG1hV7u@hattie.db.elephantsql.com/chckkmjn'
 #db = SQLAlchemy(app)
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'mydatabase.db')
+db = SQLAlchemy(app)
 
 
 class Todo(db.Model):
